@@ -46,3 +46,13 @@ apt update
 apt install -f
 dpkg --configure -a
 ```
+
+### Unmount everything and reboot
+
+```sh
+sudo umount /mnt/ubuntu/sys
+sudo umount /mnt/ubuntu/proc
+sudo umount /mnt/ubuntu/dev
+sudo umount /mnt/ubuntu/boot/efi
+sudo umount /mnt/ubuntu
+```
