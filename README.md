@@ -2,6 +2,8 @@
 
 Useful information about ubuntu config and utilities.
 
+Download this documentation: `$ curl -LO https://raw.githubusercontent.com/vncsmyrnk/ubuntu/refs/heads/main/README.md`
+
 ## apt repos
 
 - [launchpad](https://launchpad.net/)
@@ -43,6 +45,7 @@ sudo chroot /mnt/ubuntu
 
 ```sh
 apt update
+apt upgrade
 apt install -f
 dpkg --configure -a
 ```
@@ -55,4 +58,5 @@ sudo umount /mnt/ubuntu/proc
 sudo umount /mnt/ubuntu/dev
 sudo umount /mnt/ubuntu/boot/efi
 sudo umount /mnt/ubuntu
+sudo systemctl poweroff
 ```
