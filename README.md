@@ -24,15 +24,14 @@ Useful for manually mounting the system and check for broken packages and repair
 ### Mount the partitions
 
 ```sh
-sudo mkdir /mnt/ubuntu
-sudo mount <root_device> /mnt/ubuntu # mounts root partition
-sudo mkdir -p /mnt/ubuntu/boot/efi
-sudo mount <efi_device> /mnt/ubuntu/boot/efi # mounts efi - if applicable
+mkdir /mnt/ubuntu
+mount <root_device> /mnt/ubuntu # mounts root partition
+mount --mkdir <efi_device> /mnt/ubuntu/boot
 
 # Mounts necessary directories
-sudo mount --bind /dev /mnt/ubuntu/dev
-sudo mount --bind /proc /mnt/ubuntu/proc
-sudo mount --bind /sys /mnt/ubuntu/sys
+mount --bind /dev /mnt/ubuntu/dev
+mount --bind /proc /mnt/ubuntu/proc
+mount --bind /sys /mnt/ubuntu/sys
 ```
 
 ### Chroot into it
@@ -53,10 +52,10 @@ dpkg --configure -a
 ### Unmount everything and reboot
 
 ```sh
-sudo umount /mnt/ubuntu/sys
-sudo umount /mnt/ubuntu/proc
-sudo umount /mnt/ubuntu/dev
-sudo umount /mnt/ubuntu/boot/efi
-sudo umount /mnt/ubuntu
-sudo systemctl poweroff
+umount /mnt/ubuntu/sys
+umount /mnt/ubuntu/proc
+umount /mnt/ubuntu/dev
+umount /mnt/ubuntu/boot/efi
+umount /mnt/ubuntu
+systemctl poweroff
 ```
